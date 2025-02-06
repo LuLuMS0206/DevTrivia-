@@ -1,1 +1,11 @@
-<p>user-component works!</p>
+<div class="user-container">
+    <h2>Bienvenido a DEVTRIVIA</h2>
+
+    <label for="username">Introduce tu nombre:</label>
+    <input type="text" id="username" [(ngModel)]="username" placeholder="Escribe tu nombre aquí">
+
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+
+    <button (click)="onSubmit()">Empezar</button>
+</div>

@@ -1,11 +1,6 @@
-<div class="user-container">
-    <h2>Bienvenido a DEVTRIVIA</h2>
-
-    <label for="username">Introduce tu nombre:</label>
-    <input type="text" id="username" [(ngModel)]="username" placeholder="Escribe tu nombre aquí">
-
-    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
-
-
-    <button (click)="onSubmit()">Empezar</button>
+<div class="container">
+    <h1 class="neon-text">BIENVENIDO A DEVTRIVIA</h1>
+    <input type="text" [(ngModel)]="username" placeholder="Escribe tu nombre" class="neon-input" />
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button (click)="onSubmit()" class="neon-button">LET'S PLAY</button>
 </div>

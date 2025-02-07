@@ -1,5 +1,45 @@
 .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.neon-text {
+    font-size: 3.125rem;
+    color: #FFC107;
+    text-shadow: 0 0 6px #FFC107, 0 0 18px #FFC107;
+    margin-bottom: 1.25rem; 
+    position: absolute;
+    top: 10%;
+    letter-spacing: 0.25rem;
+}
+
+
+.neon-input{
+    margin-bottom: 3rem;
+    font-size: 1.0625rem;
+    color: white;
+    background-color: transparent;
+    padding: 0.9375rem 2.625rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bd4cbd, 0 0 20px #bd4cbd;
+}
+
+.neon-button {
+    font-size: 1.75rem;
+    color: #FFC107;
+    background-color: transparent;
+    padding: 1.25rem 3.125rem;
+    border: none;
+    border-radius: 10px;
+    text-shadow: 0 0 10px #FFC107, 0 0 20px #FFC107;
+    box-shadow: 0 0 10px #bd4cbd, 0 0 20px #bd4cbd;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    letter-spacing: 0.125rem;
+}
+
+.neon-button:hover {
+    transform: scale(1.1); 
 }

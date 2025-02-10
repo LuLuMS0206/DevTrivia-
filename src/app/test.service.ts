@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -423,17 +423,19 @@ export class TestService {
     
   ];
 
+  private questionsMap = new Map([
+    ['css', this.cssQuestions],
+    ['html', this.htmlQuestions],
+    ['angular', this.angularQuestions],
+    ['typescript', this.typescriptQuestions]
+  ]);
+
   getQuestions(testType: string): Observable<any[]> {
-    if (testType.toLowerCase() === 'css') {
-      return of(this.cssQuestions);
-    } else if (testType.toLowerCase() === 'html') {
-      return of(this.htmlQuestions);
-    } else if (testType.toLowerCase() === 'angular') {
-      return of(this.angularQuestions);
-    } else if (testType.toLowerCase() === 'typescript') {
-      return of(this.typescriptQuestions);
+    if (!this.questionsMap.has(testType.toLowerCase())) {
+      return throwError('Tipo de prueba no válido');
     }
 
-    return of([]);
+    return of(this.questionsMap.get(testType.toLowerCase()) || []);
   }
+  
 }

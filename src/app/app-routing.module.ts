@@ -8,7 +8,7 @@ import { TestSelectionComponentComponent } from './test-selection-component/test
 const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'tests', component: TestSelectionComponentComponent },
-  // { path: 'test/:id', component: TestComponent },  
+  { path: 'test/:testId', component: TestSelectionComponentComponent }, 
   { path: '', redirectTo: '/user', pathMatch: 'full' }
 ];
 

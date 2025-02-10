@@ -1,17 +1,22 @@
 <div class="container">
     <h1 class="neon-text">Bienvenido, {{ username }} 🎮</h1>
-    <p class="neon-text">¡Elige una categoría y comienza tu test!</p>
 
+    <div *ngIf="testId">
+        <h2 class="neon-text">{{ getTestContent().title }}</h2>
+        <p class="neon-text">{{ getTestContent().description }}</p>
+
+        <button class="start-test-button" [routerLink]="['/test', testId, 'start']">Comenzar el test</button>
+    </div>
+    <div *ngIf="!testId">
+        <p class="neon-text">¡Elige un test para comenzar!</p>
 
         <div>
-            <button class="neon-button">HTML</button>
-            <button class="neon-button">CSS</button>
+            <button class="neon-button" [routerLink]="['/test', 'html']">HTML</button>
+            <button class="neon-button" [routerLink]="['/test', 'css']">CSS</button>
         </div>
-
         <div>
-            <button class="neon-button">ANGULAR</button>
-            <button class="neon-button">TYPESCRIPT</button>
+            <button class="neon-button" [routerLink]="['/test', 'angular']">ANGULAR</button>
+            <button class="neon-button" [routerLink]="['/test', 'typescript']">TYPESCRIPT</button>
         </div>
-    
-
+    </div>
 </div>

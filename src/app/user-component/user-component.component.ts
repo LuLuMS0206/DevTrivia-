@@ -27,7 +27,7 @@ export class UserComponent {
 
     if (this.errorMessage === '') {
       localStorage.setItem('username', this.username);
-      this.router.navigate(['/test-selection']);
+      this.router.navigate(['/tests']);
     }
   }
 }

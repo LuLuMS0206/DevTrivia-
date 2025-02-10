@@ -1,1 +1,7 @@
-<p>user-component works!</p>
+<div class="container">
+    <h1 class="neon-text">BIENVENIDO A DEVTRIVIA</h1>
+    <input type="text" [(ngModel)]="username" placeholder="Escribe tu nombre
+    " class="neon-input" />
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button (click)="onSubmit()" class="neon-button">LET'S PLAY</button>
+</div>

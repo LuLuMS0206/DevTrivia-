@@ -1,24 +1,28 @@
-<div *ngIf="questions.length > 0">
+<div *ngIf="!testFinished">
     <div class="question">
         <h3 class="neon-text">Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
-        <p class="neon-text">{{ questions[currentQuestionIndex].question }}</p>
+        <p class="neon-text">{{ questions[currentQuestionIndex]?.question }}</p>
 
-     
-        <div *ngFor="let option of questions[currentQuestionIndex].options">
+        <div *ngFor="let option of questions[currentQuestionIndex]?.options; let i = index">
             <label>
-                <input 
-                    type="radio" 
-                    name="question{{ currentQuestionIndex }}" 
-                    (change)="selectAnswer(option)" 
-                    [checked]="selectedAnswer === option" 
-                /> 
+                <input type="radio" name="question{{ currentQuestionIndex }}" [value]="option"
+                    (change)="selectAnswer(option)" [checked]="selectedAnswers[currentQuestionIndex] === option" />
                 {{ option }}
             </label>
         </div>
 
         <div class="navigation-buttons">
-            <button class="neon-button" (click)="nextQuestion()"
-                [disabled]="!selectedAnswer">Siguiente</button>
+            <button class="neon-button" (click)="nextQuestion()" 
+                [disabled]="!selectedAnswers[currentQuestionIndex]">
+                {{ currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente' }}
+            </button>
         </div>
     </div>
+</div>
+
+<!-- Pantalla de resultados -->
+<div *ngIf="testFinished">
+    <h3 class="neon-text">Resultados del Test</h3>
+    <p class="neon-text">Aciertos: {{ correctAnswers }}</p>
+    <p class="neon-text">Fallos: {{ questions.length - correctAnswers }}</p>
 </div>

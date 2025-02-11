@@ -8,19 +8,21 @@ import { TestService } from './../test.service';
   styleUrls: ['./test-component.component.css']
 })
 export class TestComponentComponent implements OnInit {
-  testType: string = '';  
-  questions: any[] = [];  
-  currentQuestionIndex: number = 0;  
-  selectedAnswer: string | null = null;  
+  testType: string = '';
+  questions: any[] = [];
+  currentQuestionIndex: number = 0;
+  selectedAnswers: { [key: number]: string } = {};
+  correctAnswers: number = 0;
+  testFinished: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private testService: TestService  
+    private testService: TestService
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.testType = params['type'];  
+      this.testType = params['type'];
       this.loadQuestions();
     });
   }
@@ -37,13 +39,20 @@ export class TestComponentComponent implements OnInit {
   }
 
   selectAnswer(option: string): void {
-    this.selectedAnswer = option;
+    this.selectedAnswers[this.currentQuestionIndex] = option;
   }
 
   nextQuestion(): void {
-    if (this.currentQuestionIndex < this.questions.length - 1 && this.selectedAnswer) {
+    if (this.currentQuestionIndex === this.questions.length - 1) {
+      this.finishTest();
+    } else {
       this.currentQuestionIndex++;
-      this.selectedAnswer = null; 
     }
+  }
+
+  finishTest(): void {
+    this.correctAnswers = this.questions.filter((q, index) => 
+      this.selectedAnswers[index] === q.correctAnswer).length;
+    this.testFinished = true;
   }
 }

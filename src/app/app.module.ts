@@ -6,13 +6,15 @@ import { UserComponent } from './user-component/user-component.component';
 import { TestSelectionComponentComponent } from './test-selection-component/test-selection-component.component';  // Asegúrate de importar el componente
 import { FormsModule } from '@angular/forms';
 import { TestComponentComponent } from './test-component/test-component.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     TestSelectionComponentComponent,  
-    TestComponentComponent,
+    TestComponentComponent, 
+    ResultComponent,
   ],
   imports: [
     BrowserModule,

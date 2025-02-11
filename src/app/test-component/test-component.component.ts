@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TestService } from './../test.service'; 
+import { TestService } from './../test.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-test-component',
@@ -17,7 +18,8 @@ export class TestComponentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private testService: TestService
+    private testService: TestService,
+    private router: Router 
   ) {}
 
   ngOnInit(): void {
@@ -54,5 +56,18 @@ export class TestComponentComponent implements OnInit {
     this.correctAnswers = this.questions.filter((q, index) => 
       this.selectedAnswers[index] === q.correctAnswer).length;
     this.testFinished = true;
+  
+    console.log('Aciertos:', this.correctAnswers);
+    console.log('Total de preguntas:', this.questions.length);
+  
+    this.router.navigate(['/result'], {
+      state: { 
+        correctAnswers: this.correctAnswers,
+        totalQuestions: this.questions.length
+      }
+    });
   }
+  
+  
+  
 }

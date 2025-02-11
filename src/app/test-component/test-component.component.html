@@ -3,21 +3,22 @@
         <h3 class="neon-text">Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
         <p class="neon-text">{{ questions[currentQuestionIndex].question }}</p>
 
+     
         <div *ngFor="let option of questions[currentQuestionIndex].options">
             <label>
-                <input type="radio" name="question{{ currentQuestionIndex }}" /> {{ option }}
+                <input 
+                    type="radio" 
+                    name="question{{ currentQuestionIndex }}" 
+                    (change)="selectAnswer(option)" 
+                    [checked]="selectedAnswer === option" 
+                /> 
+                {{ option }}
             </label>
         </div>
 
         <div class="navigation-buttons">
-            <button class="neon-button" (click)="previousQuestion()"
-                [disabled]="currentQuestionIndex === 0">Anterior</button>
             <button class="neon-button" (click)="nextQuestion()"
-                [disabled]="currentQuestionIndex === questions.length - 1">Siguiente</button>
+                [disabled]="!selectedAnswer">Siguiente</button>
         </div>
     </div>
-</div>
-
-<div *ngIf="questions.length === 0">
-    <p class="neon-text">Cargando preguntas...</p>
 </div>

@@ -11,6 +11,7 @@ export class TestComponentComponent implements OnInit {
   testType: string = '';  
   questions: any[] = [];  
   currentQuestionIndex: number = 0;  
+  selectedAnswer: string | null = null;  
 
   constructor(
     private route: ActivatedRoute,
@@ -35,15 +36,14 @@ export class TestComponentComponent implements OnInit {
     );
   }
 
-  nextQuestion(): void {
-    if (this.currentQuestionIndex < this.questions.length - 1) {
-      this.currentQuestionIndex++;
-    }
+  selectAnswer(option: string): void {
+    this.selectedAnswer = option;
   }
 
-  previousQuestion(): void {
-    if (this.currentQuestionIndex > 0) {
-      this.currentQuestionIndex--;
+  nextQuestion(): void {
+    if (this.currentQuestionIndex < this.questions.length - 1 && this.selectedAnswer) {
+      this.currentQuestionIndex++;
+      this.selectedAnswer = null; 
     }
   }
 }

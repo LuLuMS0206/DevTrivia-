@@ -14,7 +14,51 @@ body {
     height: 100vh;
 }
 
+.neon-button {
+    font-size: 1.75rem;
+    background-color: transparent;
+    padding: 1.25rem 3.125rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    letter-spacing: 0.125rem;
+    text-shadow: 0 0 10px, 0 0 20px;
+    box-shadow: 0 0 10px, 0 0 20px;
+}
 
+.neon-button-lilac {
+    color: #8c77b1;
+    text-shadow: 0 0 8px #673AB7, 0 0 16px #673AB7;
+    box-shadow: 0 0 8px #673AB7, 0 0 16px #673AB7;
+}
+
+.neon-button-pink {
+    color: #eb8b99;
+    text-shadow: 0 0 8px #eb8b99, 0 0 16px #eb8b99;
+    box-shadow: 0 0 8px #eb8b99, 0 0 16px #eb8b99;
+}
+
+
+.neon-button-blue {
+    color: #00BCD4;
+    text-shadow: 0 0 8px #00BCD4, 0 0 16px #00BCD4;
+    box-shadow: 0 0 8px #00BCD4, 0 0 16px #00BCD4;
+}
+
+
+.neon-button-peach {
+    color: #eda565;
+    text-shadow: 0 0 8px #eda565, 0 0 16px #eda565;
+    box-shadow: 0 0 8px #eda565, 0 0 16px #eda565;
+}
+
+
+
+.neon-button:hover {
+    transform: scale(1.1);
+}
 
 
 

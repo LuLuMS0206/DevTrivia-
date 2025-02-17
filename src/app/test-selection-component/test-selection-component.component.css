@@ -1,3 +1,14 @@
-.test__selection{
+.button-container {
     display: flex;
-}
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  

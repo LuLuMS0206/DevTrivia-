@@ -7,16 +7,19 @@
 
         <button class="start-test-button" [routerLink]="['/test', testId, 'start']">Comenzar el test</button>
     </div>
+    
     <div *ngIf="!testId">
         <p class="neon-text">¡Elige un test para comenzar!</p>
 
-        <div>
-            <button class="neon-button" [routerLink]="['/test', 'html']">HTML</button>
-            <button class="neon-button" [routerLink]="['/test', 'css']">CSS</button>
-        </div>
-        <div>
-            <button class="neon-button" [routerLink]="['/test', 'angular']">ANGULAR</button>
-            <button class="neon-button" [routerLink]="['/test', 'typescript']">TYPESCRIPT</button>
+        <div class="button-container">
+            <div class="column">
+                <button class="neon-button neon-button-lilac" [routerLink]="['/test', 'html']">HTML</button>
+                <button class="neon-button neon-button-pink" [routerLink]="['/test', 'css']">CSS</button>
+            </div>
+            <div class="column">
+                <button class="neon-button neon-button-blue" [routerLink]="['/test', 'angular']">ANGULAR</button>
+                <button class="neon-button neon-button-peach" [routerLink]="['/test', 'typescript']">TYPESCRIPT</button>
+            </div>
         </div>
     </div>
 </div>

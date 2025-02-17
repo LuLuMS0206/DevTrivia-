@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultService } from './../result.service';  // Importar ResultService
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,18 +11,15 @@ export class ResultComponent implements OnInit {
   correctAnswers: number = 0;
   totalQuestions: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private resultService: ResultService) { }
 
   ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      this.correctAnswers = navigation.extras.state['correctAnswers'] || 0;
-      this.totalQuestions = navigation.extras.state['totalQuestions'] || 0;
-      
-      console.log('Datos recibidos en ResultComponent:', this.correctAnswers, this.totalQuestions);
-    } else {
-      console.log('No se recibieron datos desde la navegación.');
-    }
+    // Obtener los resultados desde el servicio
+    const results = this.resultService.getResults();
+    this.correctAnswers = results.correctAnswers;
+    this.totalQuestions = results.totalQuestions;
+
+    console.log('Datos recibidos del servicio:', this.correctAnswers, this.totalQuestions);
   }
 
   restartTest(): void {

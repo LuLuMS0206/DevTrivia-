@@ -12,7 +12,7 @@
         </div>
 
         <div class="navigation-buttons">
-            <button class="neon-button" (click)="nextQuestion()" 
+            <button class="neon-button question-button" (click)="nextQuestion()" 
                 [disabled]="!selectedAnswers[currentQuestionIndex]">
                 {{ currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente' }}
             </button>

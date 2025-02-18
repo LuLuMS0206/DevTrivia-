@@ -1,0 +1,8 @@
+.question-button{
+        color: #dbd8ce;
+        text-shadow: 0 0 10px #dbd8ce, 0 0 20px #dbd8ce;
+        transform: none;
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+}
+

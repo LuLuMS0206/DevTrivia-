@@ -1,3 +1,8 @@
+.question{
+    gap: 3rem;
+    font-size: 1.5rem;
+}
+
 .question-button{
         color: #dbd8ce;
         text-shadow: 0 0 10px #dbd8ce, 0 0 20px #dbd8ce;
@@ -6,3 +11,50 @@
         padding: 1rem 2.5rem;
 }
 
+.neon-button:disabled, 
+.question-button:disabled {
+    opacity: 0.5;  
+    cursor: not-allowed;  
+    box-shadow: none; 
+    text-shadow: none;
+    transform: none;
+}
+
+
+input[type="radio"] {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+input[type="radio"]:checked {
+    background-color: #584181; 
+    border-color: #584181;
+}
+
+input[type="radio"]:not(:checked) {
+    background-color: transparent;
+}
+
+input[type="radio"]::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ecebe6; 
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked::after {
+    background-color: #673AB7; 
+}

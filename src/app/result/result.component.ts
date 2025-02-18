@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResultService } from './../result.service';  // Importar ResultService
+import { ResultService } from './../result.service';  
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,6 @@ export class ResultComponent implements OnInit {
   constructor(private router: Router, private resultService: ResultService) { }
 
   ngOnInit(): void {
-    // Obtener los resultados desde el servicio
     const results = this.resultService.getResults();
     this.correctAnswers = results.correctAnswers;
     this.totalQuestions = results.totalQuestions;

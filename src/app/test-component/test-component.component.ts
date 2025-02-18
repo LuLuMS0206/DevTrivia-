@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from './../test.service';
-import { ResultService } from './../result.service';  // Importar ResultService
+import { ResultService } from './../result.service';  
 
 @Component({
   selector: 'app-test-component',
@@ -20,7 +20,7 @@ export class TestComponentComponent implements OnInit {
     private route: ActivatedRoute,
     private testService: TestService,
     private router: Router,
-    private resultService: ResultService  // Inyectar ResultService
+    private resultService: ResultService  
   ) {}
 
   ngOnInit(): void {
@@ -54,20 +54,16 @@ export class TestComponentComponent implements OnInit {
   }
 
   finishTest(): void {
-    // Calculando los aciertos
     this.correctAnswers = this.questions.filter((q, index) => 
       this.selectedAnswers[index] === q.correctAnswer).length;
     
-    // Verificando los valores de correctAnswers y totalQuestions antes de guardarlos
     console.log('Aciertos calculados:', this.correctAnswers);
     console.log('Total de preguntas:', this.questions.length);
   
-    // Guardar los resultados en el servicio
     this.resultService.setResults(this.correctAnswers, this.questions.length);
   
     this.testFinished = true;
   
-    // Navegar a la página de resultados
     this.router.navigate(['/result']);
   }
 }

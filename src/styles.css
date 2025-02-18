@@ -1,6 +1,6 @@
 
 body {
-    background-color: #0a0a0a;
+    background-color: #2e1535;
     color: white;
     font-family: 'Sofia Sans Condensed', sans-serif;
     text-align: center;
@@ -16,16 +16,17 @@ body {
 
 .neon-button {
     font-size: 1.75rem;
+    color: #FFC107;
     background-color: transparent;
     padding: 1.25rem 3.125rem;
     border: none;
     border-radius: 10px;
+    text-shadow: 0 0 10px #FFC107, 0 0 20px #FFC107;
+    box-shadow: 0 0 10px #aa59c2, 0 0 20px #aa59c2;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
     display: inline-block;
     letter-spacing: 0.125rem;
-    text-shadow: 0 0 10px, 0 0 20px;
-    box-shadow: 0 0 10px, 0 0 20px;
 }
 
 .neon-button-lilac {

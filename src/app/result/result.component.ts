@@ -22,6 +22,14 @@ export class ResultComponent implements OnInit {
   }
 
   restartTest(): void {
-    this.router.navigate(['/test']);
+    const results = this.resultService.getResults();
+    const testId = results.testId; 
+  
+    if (testId) {
+      this.router.navigate(['/test', testId]); 
+    } else {
+      console.error('Error: testId es undefined');
+    }
   }
+  
 }

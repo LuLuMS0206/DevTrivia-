@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from './../test.service';
 import { ResultService } from './../result.service';  
@@ -8,13 +8,15 @@ import { ResultService } from './../result.service';
   templateUrl: './test-component.component.html',
   styleUrls: ['./test-component.component.css']
 })
-export class TestComponentComponent implements OnInit {
+export class TestComponentComponent implements OnInit, OnDestroy {
   testType: string = '';
   questions: any[] = [];
   currentQuestionIndex: number = 0;
   selectedAnswers: { [key: number]: string } = {};
   correctAnswers: number = 0;
   testFinished: boolean = false;
+  timeLeft: number = 60; 
+  timerInterval: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +29,12 @@ export class TestComponentComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.testType = params['type'];
       this.loadQuestions();
+      this.startTimer(); 
     });
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.timerInterval); 
   }
 
   loadQuestions(): void {
@@ -39,6 +46,16 @@ export class TestComponentComponent implements OnInit {
         console.error('Error cargando preguntas:', error);
       }
     );
+  }
+
+  startTimer(): void {
+    this.timerInterval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.finishTest(); 
+      }
+    }, 1000);
   }
 
   selectAnswer(option: string): void {
@@ -54,6 +71,7 @@ export class TestComponentComponent implements OnInit {
   }
 
   finishTest(): void {
+    clearInterval(this.timerInterval); 
     this.correctAnswers = this.questions.filter((q, index) => 
       this.selectedAnswers[index] === q.correctAnswer).length;
     
@@ -63,8 +81,6 @@ export class TestComponentComponent implements OnInit {
     
     this.router.navigate(['/result']);
   }
-  
-
   
 
   restartTest(): void {

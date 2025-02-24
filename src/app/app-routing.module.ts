@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'test/:testId', component: TestSelectionComponentComponent }, 
   { path: 'test/:type/start', component: TestComponentComponent },
   { path: 'result', component: ResultComponent },
-  { path: '', redirectTo: '/user', pathMatch: 'full' }
+  { path: '', redirectTo: '/user', pathMatch: 'full' },
+  { path: '**', redirectTo: 'test/:testId' }
 ];
 
 @NgModule({

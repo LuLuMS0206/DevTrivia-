@@ -57,13 +57,17 @@ export class TestComponentComponent implements OnInit {
     this.correctAnswers = this.questions.filter((q, index) => 
       this.selectedAnswers[index] === q.correctAnswer).length;
     
-    console.log('Aciertos calculados:', this.correctAnswers);
-    console.log('Total de preguntas:', this.questions.length);
-  
-    this.resultService.setResults(this.correctAnswers, this.questions.length);
-  
+    this.resultService.setResults(this.correctAnswers, this.questions.length, this.testType); 
+    
     this.testFinished = true;
-  
+    
     this.router.navigate(['/result']);
+  }
+  
+
+  
+
+  restartTest(): void {
+    this.router.navigate(['/test', this.testType]); 
   }
 }

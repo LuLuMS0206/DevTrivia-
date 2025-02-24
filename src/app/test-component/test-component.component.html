@@ -1,5 +1,10 @@
 <div *ngIf="!testFinished">
     <div class="question container">
+        <h3 [ngClass]="{'danger': timeLeft <= 10}" class="neon-text">
+            ⏳ {{ timeLeft }}s
+        </h3>
+        
+
         <h3 class="neon-text">Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
         <p class="neon-text">{{ questions[currentQuestionIndex]?.question }}</p>
 

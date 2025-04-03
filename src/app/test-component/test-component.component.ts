@@ -47,7 +47,7 @@ export class TestComponentComponent implements OnInit, OnDestroy {
       }
     );
   }
-
+  
   startTimer(): void {
     this.timerInterval = setInterval(() => {
       if (this.timeLeft > 0) {
@@ -61,7 +61,7 @@ export class TestComponentComponent implements OnInit, OnDestroy {
   selectAnswer(option: string): void {
     this.selectedAnswers[this.currentQuestionIndex] = option;
   }
-
+  
   nextQuestion(): void {
     if (this.currentQuestionIndex === this.questions.length - 1) {
       this.finishTest();
@@ -71,18 +71,19 @@ export class TestComponentComponent implements OnInit, OnDestroy {
   }
 
   finishTest(): void {
-    clearInterval(this.timerInterval); 
+    clearInterval(this.timerInterval);
+  
     this.correctAnswers = this.questions.filter((q, index) => 
-      this.selectedAnswers[index] === q.correctAnswer).length;
-    
-    this.resultService.setResults(this.correctAnswers, this.questions.length, this.testType); 
-    
+      this.selectedAnswers[index] === q.correct
+    ).length;
+  
+    this.resultService.setResults(this.correctAnswers, this.questions.length, this.testType);
+  
     this.testFinished = true;
     
     this.router.navigate(['/result']);
   }
   
-
   restartTest(): void {
     this.router.navigate(['/test', this.testType]); 
   }

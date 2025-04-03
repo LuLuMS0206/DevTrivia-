@@ -17,8 +17,6 @@ export class ResultComponent implements OnInit {
     const results = this.resultService.getResults();
     this.correctAnswers = results.correctAnswers;
     this.totalQuestions = results.totalQuestions;
-
-    console.log('Datos recibidos del servicio:', this.correctAnswers, this.totalQuestions);
   }
 
   restartTest(): void {

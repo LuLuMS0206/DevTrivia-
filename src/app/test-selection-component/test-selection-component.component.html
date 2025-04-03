@@ -1,18 +1,18 @@
 <div class="container">
-    <button class="button"> <span class="material-symbols-outlined">
+    <!-- <button class="button"> <span class="material-symbols-outlined">
         reply
-        </span></button>
-    <h1 class="neon-text">Bienvenido, {{ username }} 🎮</h1>
+        </span></button> -->
+    <h1 class="neon-text">Bienvenido/a, {{ username }} 🎮</h1>
 
     <div *ngIf="testId">
-        <h2 class="neon-text">{{ getTestContent().title }}</h2>
-        <p class="neon-text">{{ getTestContent().description }}</p>
+        <h2 class="neon-text test-selection-h2">{{ getTestContent().title }}</h2>
+        <p class="neon-text test-selection-description">{{ getTestContent().description }}</p>
 
         <button class="start-test-button" [routerLink]="['/test', testId, 'start']">Comenzar el test</button>
     </div>
     
     <div *ngIf="!testId">
-        <p class="neon-text">¡Elige un test para comenzar!</p>
+        <p class="neon-text test-selection-p">¡Elige un test para comenzar!</p>
 
         <div class="button-container">
             <div class="column">

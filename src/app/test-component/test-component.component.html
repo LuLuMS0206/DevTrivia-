@@ -1,8 +1,9 @@
-<div *ngIf="!testFinished">
+<div class="container" *ngIf="!testFinished">
 
-        <h3 class="neon-text">Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
-        <p class="neon-text">{{ questions[currentQuestionIndex]?.question }}</p>
+    <h3 class="neon-text question-title">Pregunta {{ currentQuestionIndex + 1 }} de {{ questions.length }}</h3>
+    <p class="neon-text question-p">{{ questions[currentQuestionIndex]?.question }}</p>
 
+    <div class="question-select">
         <div *ngFor="let option of questions[currentQuestionIndex]?.options; let i = index">
             <label>
                 <input type="radio" name="question{{ currentQuestionIndex }}" [value]="option"
@@ -10,12 +11,12 @@
                 {{ option }}
             </label>
         </div>
-
-        <div class="navigation-buttons">
-            <button class="neon-button question-button" (click)="nextQuestion()" 
-                [disabled]="!selectedAnswers[currentQuestionIndex]">
-                {{ currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente' }}
-            </button>
-        </div>
     </div>
 
+    <div class="navigation-buttons">
+        <button class="neon-button question-button" (click)="nextQuestion()"
+            [disabled]="!selectedAnswers[currentQuestionIndex]">
+            {{ currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente' }}
+        </button>
+    </div>
+</div>

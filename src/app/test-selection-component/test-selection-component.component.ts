@@ -20,13 +20,13 @@ export class TestSelectionComponentComponent implements OnInit {
   getTestContent() {
     switch (this.testId) {
       case 'html':
-        return { title: 'Test de HTML', description: '¡Estás listo para comenzar el test de HTML! Haz clic en el botón para empezar.' };
+        return { title: '< Test de HTML />', description: '¡Estás listo para comenzar el test de HTML!' };
       case 'css':
-        return { title: 'Test de CSS', description: '¡Estás listo para comenzar el test de CSS! Haz clic en el botón para empezar.' };
+        return { title: '< Test de CSS />', description: '¡Estás listo para comenzar el test de CSS!' };
       case 'angular':
-        return { title: 'Test de Angular', description: '¡Estás listo para comenzar el test de Angular! Haz clic en el botón para empezar.' };
+        return { title: '< Test de Angular />', description: '¡Estás listo para comenzar el test de Angular!' };
       case 'typescript':
-        return { title: 'Test de Typescript', description: '¡Estás listo para comenzar el test de Typescript! Haz clic en el botón para empezar.' };
+        return { title: '< Test de Typescript />', description: '¡Estás listo para comenzar el test de Typescript!' };
       default:
         return { title: 'Selecciona un test', description: 'Haz clic en un test para comenzar.' };
     }

@@ -4,6 +4,20 @@
     gap: 3rem;
     margin-top: 2rem;
   }
+
+  .test-selection-h2{
+    font-size: 1.8rem;
+  }
+
+  .test-selection-description{
+    font-size: 1.6rem;
+  }
+
+  .test-selection-p{
+    font-size: 1.6rem;
+  }
+
+
   
   .column {
     display: flex;
